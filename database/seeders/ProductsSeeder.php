@@ -13,8 +13,8 @@ class ProductsSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
-    {
+    public function run(){
+        
         $faker = Faker::create();
         for ($i=0; $i < 50; $i++) { 
             DB::table('products')->insert([

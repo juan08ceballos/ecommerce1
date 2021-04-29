@@ -16,8 +16,8 @@ class CreateOrdersTable extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->enum('payment',['cc','crypto']);
-            $table->enum('state',['pending','crypto']);
+            $table->enum('state', ['active', 'pending', 'refunden', 'cancelled', 'finished'])->default('pending');
+            $table->enum('payment',['cc','crypto','cash','pse','paypal']);
             $table->bigInteger('final_price');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
