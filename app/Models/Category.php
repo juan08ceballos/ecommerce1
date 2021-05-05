@@ -7,5 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
+    protected $table = 'categories';
     use HasFactory;
+
+    public function products(){
+        return $this->belongsToMany(Product::class, 'products_has_categories');
+    }
 }

@@ -16,12 +16,31 @@ class CategoriesSeeder extends Seeder
     public function run()
     {
         $faker = Faker::create();
-        for ($i=0; $i < 50 ; $i++) { 
-           DB::table('categories')->insert([
-            'created_at'=>$faker->dateTime($max = 'now', $timezone = null),
-            'updated_at'=>$faker->dateTime($max = 'now', $timezone = null),
-            'name'=>'category'.$i
-              ]);
-        }
+
+        DB::table('categories')->insert([
+            'created_at' => $faker->dateTime($max = 'now', $timezone = null),
+            'updated_at' => $faker->dateTime($max = 'now', $timezone = null),
+            'name' => 'celulares'
+        ]);
+        DB::table('categories')->insert([
+            'created_at' => $faker->dateTime($max = 'now', $timezone = null),
+            'updated_at' => $faker->dateTime($max = 'now', $timezone = null),
+            'name' => 'tablets'
+        ]);
+        DB::table('categories')->insert([
+            'created_at' => $faker->dateTime($max = 'now', $timezone = null),
+            'updated_at' => $faker->dateTime($max = 'now', $timezone = null),
+            'name' => 'accesorios'
+        ]);
+        DB::table('categories')->insert([
+            'created_at' => $faker->dateTime($max = 'now', $timezone = null),
+            'updated_at' => $faker->dateTime($max = 'now', $timezone = null),
+            'name' => 'televisores'
+        ]);
+        DB::table('categories')->insert([
+            'created_at' => $faker->dateTime($max = 'now', $timezone = null),
+            'updated_at' => $faker->dateTime($max = 'now', $timezone = null),
+            'name' => 'sonido'
+        ]);
     }
 }

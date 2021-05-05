@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Product;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    // return view('welcome');
+});
+
+// Route::get('/pruebaProductos', function () {
+//     // return view('welcome');
+//     $product1 = Product::find(1);
+//     dd($product1)->categories;
+// });
+
+Route::get('/productos', function ($categoria = 'todas') {
+    $productos = Product::where('available',true)->get();
+    return view('components.products',compact('productos'));
 });

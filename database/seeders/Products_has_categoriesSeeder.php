@@ -16,13 +16,66 @@ class Products_has_categoriesSeeder extends Seeder
     public function run()
     {
         $faker = Faker::create();
-        for ($i=0; $i < 50 ; $i++) { 
-           DB::table('products_has_categories')->insert([
-            'created_at'=>$faker->dateTime($max = 'now', $timezone = null),
-            'updated_at'=>$faker->dateTime($max = 'now', $timezone = null),
-            'product_id'=>$faker->numberBetween(1,50),
-            'category_id'=>$faker->numberBetween(1,50)
-              ]);
-        }
+
+        DB::table('products_has_categories')->insert([
+            'created_at' => $faker->dateTime($max = 'now', $timezone = null),
+            'updated_at' => $faker->dateTime($max = 'now', $timezone = null),
+            'product_id' => 73,
+            'category_id' => 51
+        ]);
+        DB::table('products_has_categories')->insert([
+            'created_at' => $faker->dateTime($max = 'now', $timezone = null),
+            'updated_at' => $faker->dateTime($max = 'now', $timezone = null),
+            'product_id' => 74,
+            'category_id' => 51
+        ]);
+        DB::table('products_has_categories')->insert([
+            'created_at' => $faker->dateTime($max = 'now', $timezone = null),
+            'updated_at' => $faker->dateTime($max = 'now', $timezone = null),
+            'product_id' => 75,
+            'category_id' => 52
+        ]);
+        DB::table('products_has_categories')->insert([
+            'created_at' => $faker->dateTime($max = 'now', $timezone = null),
+            'updated_at' => $faker->dateTime($max = 'now', $timezone = null),
+            'product_id' => 76,
+            'category_id' => 52
+        ]);
+        DB::table('products_has_categories')->insert([
+            'created_at' => $faker->dateTime($max = 'now', $timezone = null),
+            'updated_at' => $faker->dateTime($max = 'now', $timezone = null),
+            'product_id' => 77,
+            'category_id' => 53
+        ]);
+        DB::table('products_has_categories')->insert([
+            'created_at' => $faker->dateTime($max = 'now', $timezone = null),
+            'updated_at' => $faker->dateTime($max = 'now', $timezone = null),
+            'product_id' => 78,
+            'category_id' => 53
+        ]);
+        DB::table('products_has_categories')->insert([
+            'created_at' => $faker->dateTime($max = 'now', $timezone = null),
+            'updated_at' => $faker->dateTime($max = 'now', $timezone = null),
+            'product_id' => 79,
+            'category_id' => 54
+        ]);
+        DB::table('products_has_categories')->insert([
+            'created_at' => $faker->dateTime($max = 'now', $timezone = null),
+            'updated_at' => $faker->dateTime($max = 'now', $timezone = null),
+            'product_id' => 80,
+            'category_id' => 54
+        ]);
+        DB::table('products_has_categories')->insert([
+            'created_at' => $faker->dateTime($max = 'now', $timezone = null),
+            'updated_at' => $faker->dateTime($max = 'now', $timezone = null),
+            'product_id' => 81,
+            'category_id' => 55
+        ]);
+        DB::table('products_has_categories')->insert([
+            'created_at' => $faker->dateTime($max = 'now', $timezone = null),
+            'updated_at' => $faker->dateTime($max = 'now', $timezone = null),
+            'product_id' => 81,
+            'category_id' => 55
+        ]);
     }
 }
