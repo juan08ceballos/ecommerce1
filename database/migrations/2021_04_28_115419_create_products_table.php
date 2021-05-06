@@ -21,6 +21,9 @@ class CreateProductsTable extends Migration
             $table->string('description');
             $table->bigInteger('price');
             $table->boolean('available')->default(true);
+            $table->integer('stock');
+            $table->string('video');
+            $table->integer('discount');
         });
     }
 

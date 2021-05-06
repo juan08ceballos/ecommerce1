@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\ProductController;
 use App\Models\Product;
+use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,7 +26,9 @@ Route::get('/', function () {
 //     dd($product1)->categories;
 // });
 
-Route::get('/productos', function ($categoria = 'todas') {
-    $productos = Product::where('available',true)->get();
-    return view('components.products',compact('productos'));
-});
+// Route::get('/productos', function ($categoria = 'todas') {
+//     $productos = Product::where('available',true)->get();
+//     return view('components.products',compact('productos'));
+// });
+
+Route::resource('products', ProductController::class);

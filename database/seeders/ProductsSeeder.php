@@ -24,7 +24,10 @@ class ProductsSeeder extends Seeder
             'price' => 615000,
             'available' => 1,
             'created_at' => $faker->dateTime($max = 'now', $timezone = null),
-            'updated_at' => $faker->dateTime($max = 'now', $timezone = null)
+            'updated_at' => $faker->dateTime($max = 'now', $timezone = null),
+            'stock' => 30,
+            'video' => 'https://www.youtube.com/watch?v=bQCi4oU6i2A',
+            'discount' => 15
         ]);
         DB::table('products')->insert([
             'name' => 'Iphone 10',
@@ -33,7 +36,10 @@ class ProductsSeeder extends Seeder
             'price' => 2900000,
             'available' => 1,
             'created_at' => $faker->dateTime($max = 'now', $timezone = null),
-            'updated_at' => $faker->dateTime($max = 'now', $timezone = null)
+            'updated_at' => $faker->dateTime($max = 'now', $timezone = null),
+            'stock' => 40,
+            'video' => 'https://www.youtube.com/watch?v=fZLXMawJG4o',
+            'discount' => 16
         ]);
         DB::table('products')->insert([
             'name' => 'Samsung Galaxy Tab A7',
@@ -41,7 +47,10 @@ class ProductsSeeder extends Seeder
             'price' => 795900,
             'available' => 1,
             'created_at' => $faker->dateTime($max = 'now', $timezone = null),
-            'updated_at' => $faker->dateTime($max = 'now', $timezone = null)
+            'updated_at' => $faker->dateTime($max = 'now', $timezone = null),
+            'stock' => 55,
+            'video' => 'https://www.youtube.com/watch?v=ZGgFEk5Cvzk',
+            'discount' => 18
         ]);
         DB::table('products')->insert([
             'name' => 'Tablet Lenovo M10 Plus',
@@ -49,7 +58,10 @@ class ProductsSeeder extends Seeder
             'price' => 725000,
             'available' => 1,
             'created_at' => $faker->dateTime($max = 'now', $timezone = null),
-            'updated_at' => $faker->dateTime($max = 'now', $timezone = null)
+            'updated_at' => $faker->dateTime($max = 'now', $timezone = null),
+            'stock' => 77,
+            'video' => 'https://www.youtube.com/watch?v=5eDvRKyw1gk',
+            'discount' => 13
         ]);
         DB::table('products')->insert([
             'name' => 'Cable Hdmi 3 Metros Doble Filtro',
@@ -58,7 +70,10 @@ class ProductsSeeder extends Seeder
             'price' => 7500,
             'available' => 1,
             'created_at' => $faker->dateTime($max = 'now', $timezone = null),
-            'updated_at' => $faker->dateTime($max = 'now', $timezone = null)
+            'updated_at' => $faker->dateTime($max = 'now', $timezone = null),
+            'stock' => 83,
+            'video' => 'No video',
+            'discount' => 9
         ]);
         DB::table('products')->insert([
             'name' => 'Cargador Huawei Micro Usb Carga Rápida',
@@ -66,7 +81,10 @@ class ProductsSeeder extends Seeder
             'price' => 25000,
             'available' => 1,
             'created_at' => $faker->dateTime($max = 'now', $timezone = null),
-            'updated_at' => $faker->dateTime($max = 'now', $timezone = null)
+            'updated_at' => $faker->dateTime($max = 'now', $timezone = null),
+            'stock' => 100,
+            'video' => 'https://www.youtube.com/watch?v=N0l4_1lUpk0',
+            'discount' => 0
         ]);
         DB::table('products')->insert([
             'name' => 'Televisor 43" Crystal UHD 4K Smart TV 2020 43TU6900',
@@ -74,7 +92,10 @@ class ProductsSeeder extends Seeder
             'price' => 1399900,
             'available' => 1,
             'created_at' => $faker->dateTime($max = 'now', $timezone = null),
-            'updated_at' => $faker->dateTime($max = 'now', $timezone = null)
+            'updated_at' => $faker->dateTime($max = 'now', $timezone = null),
+            'stock' => 95,
+            'video' => 'https://www.youtube.com/watch?v=FtfubrQ3V0M',
+            'discount' => 20
         ]);
         DB::table('products')->insert([
             'name' => 'Televisor Lg 50 Pulgas (127 Cm) Smart Led 4K Ultra Hd Lg',
@@ -82,7 +103,10 @@ class ProductsSeeder extends Seeder
             'price' => 2199900,
             'available' => 1,
             'created_at' => $faker->dateTime($max = 'now', $timezone = null),
-            'updated_at' => $faker->dateTime($max = 'now', $timezone = null)
+            'updated_at' => $faker->dateTime($max = 'now', $timezone = null),
+            'stock' => 150,
+            'video' => 'https://www.youtube.com/watch?v=BhVD9qcoK_c',
+            'discount' => 18
         ]);
         DB::table('products')->insert([
             'name' => 'Equipo De Audio Sony Para Fiesta Con Bluetooth - Mhc-v02',
@@ -90,7 +114,10 @@ class ProductsSeeder extends Seeder
             'price' => 629000,
             'available' => 1,
             'created_at' => $faker->dateTime($max = 'now', $timezone = null),
-            'updated_at' => $faker->dateTime($max = 'now', $timezone = null)
+            'updated_at' => $faker->dateTime($max = 'now', $timezone = null),
+            'stock' => 53,
+            'video' => 'https://www.youtube.com/watch?v=IkCg8630N-Q',
+            'discount' => 17
         ]);
         DB::table('products')->insert([
             'name' => 'Sony MDR-7506 Audífonos',
@@ -98,7 +125,10 @@ class ProductsSeeder extends Seeder
             'price' => 429900,
             'available' => 1,
             'created_at' => $faker->dateTime($max = 'now', $timezone = null),
-            'updated_at' => $faker->dateTime($max = 'now', $timezone = null)
+            'updated_at' => $faker->dateTime($max = 'now', $timezone = null),
+            'stock' => 90,
+            'video' => 'https://www.youtube.com/watch?v=8Buk3Z8W9Pg&t=2s',
+            'discount' => 10
         ]);
     }
 }

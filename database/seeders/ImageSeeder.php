@@ -19,62 +19,62 @@ class ImageSeeder extends Seeder
     {
         $faker = Faker::create();
         DB::table('images')->insert([
-            'url' => 'https://http2.mlstatic.com/D_NQ_NP_902890-MCO43545236696_092020-O.webp',
-            'product_id' => 73,
+            'url' => 'https://tienda.claro.com.co/wcsstore/Claro/images/catalog/equipos/646x1000/70035634.jpg',
+            'product_id' => 1,
             'created_at' => $faker->dateTime($max = 'now', $timezone = null),
             'updated_at' => $faker->dateTime($max = 'now', $timezone = null),
         ]);
         DB::table('images')->insert([
-            'url' => 'https://www.mac-center.com/ccstore/v1/images/?source=/file/v5339779933333581787/products/iPhone_11_blanco.jpg&height=475&width=475',
-            'product_id' => 74,
+            'url' => 'https://i.linio.com/p/578f039ce52b7ef5210fee6d4392bd0d-product.webp',
+            'product_id' => 2,
             'created_at' => $faker->dateTime($max = 'now', $timezone = null),
             'updated_at' => $faker->dateTime($max = 'now', $timezone = null),
         ]);
         DB::table('images')->insert([
-            'url' => 'https://http2.mlstatic.com/D_NQ_NP_627691-MCO44786164610_022021-O.webp',
-            'product_id' => 75,
+            'url' => 'https://http2.mlstatic.com/D_NQ_NP_615101-MLA45258081181_032021-O.webp',
+            'product_id' => 3,
             'created_at' => $faker->dateTime($max = 'now', $timezone = null),
             'updated_at' => $faker->dateTime($max = 'now', $timezone = null),
         ]);
         DB::table('images')->insert([
-            'url' => 'https://http2.mlstatic.com/D_NQ_NP_654452-MCO44583466924_012021-O.webp',
-            'product_id' => 76,
+            'url' => 'https://falabella.scene7.com/is/image/FalabellaCO/6596739_1?wid=1500&hei=1500&qlt=70',
+            'product_id' => 4,
             'created_at' => $faker->dateTime($max = 'now', $timezone = null),
             'updated_at' => $faker->dateTime($max = 'now', $timezone = null),
         ]);
         DB::table('images')->insert([
-            'url' => 'https://http2.mlstatic.com/D_NQ_NP_895108-MCO41065872997_032020-O.webp',
-            'product_id' => 77,
+            'url' => 'https://http2.mlstatic.com/D_NQ_NP_894510-MCO42808367117_072020-O.webp',
+            'product_id' => 5,
             'created_at' => $faker->dateTime($max = 'now', $timezone = null),
             'updated_at' => $faker->dateTime($max = 'now', $timezone = null),
         ]);
         DB::table('images')->insert([
             'url' => 'https://http2.mlstatic.com/D_NQ_NP_747151-MCO45324004319_032021-O.webp',
-            'product_id' => 78,
+            'product_id' => 6,
             'created_at' => $faker->dateTime($max = 'now', $timezone = null),
             'updated_at' => $faker->dateTime($max = 'now', $timezone = null),
         ]);
         DB::table('images')->insert([
-            'url' => 'https://i.linio.com/p/2135ecb40c256f752a749bdcdbabb2d9-product.webp',
-            'product_id' => 79,
+            'url' => 'https://i.linio.com/p/f9e4838a19736ad05dabe150e720cd12-product.webp',
+            'product_id' => 7,
             'created_at' => $faker->dateTime($max = 'now', $timezone = null),
             'updated_at' => $faker->dateTime($max = 'now', $timezone = null),
         ]);
         DB::table('images')->insert([
-            'url' => 'https://i.linio.com/p/4243a6c7c96ebe2c32b8a29e4a1a6d95-product.webp',
-            'product_id' => 80,
+            'url' => 'https://electrojaponesa.vteximg.com.br/arquivos/ids/178254-1000-1000/50UM73_3.jpg?v=637227482186670000',
+            'product_id' => 8,
             'created_at' => $faker->dateTime($max = 'now', $timezone = null),
             'updated_at' => $faker->dateTime($max = 'now', $timezone = null),
         ]);
         DB::table('images')->insert([
-            'url' => 'https://http2.mlstatic.com/D_NQ_NP_869825-MCO31354317827_072019-O.webp',
-            'product_id' => 81,
+            'url' => 'https://http2.mlstatic.com/D_NQ_NP_794484-MCO44702434654_012021-O.webp',
+            'product_id' => 9,
             'created_at' => $faker->dateTime($max = 'now', $timezone = null),
             'updated_at' => $faker->dateTime($max = 'now', $timezone = null),
         ]);
         DB::table('images')->insert([
-            'url' => 'https://importacionesarturia.com/wp-content/uploads/2016/09/Sony-MDR-7506-PgBlanca.jpg',
-            'product_id' => 82,
+            'url' => 'https://http2.mlstatic.com/D_NQ_NP_688747-MCO31825137438_082019-O.webp',
+            'product_id' => 10,
             'created_at' => $faker->dateTime($max = 'now', $timezone = null),
             'updated_at' => $faker->dateTime($max = 'now', $timezone = null),
         ]);

@@ -20,4 +20,8 @@ class Product extends Model
     public function categories(){
         return $this->belongsToMany(Category::class, 'products_has_categories');
     }
+
+    public function views (){
+        return $this->hasMany(View::class);
+    }
 }
