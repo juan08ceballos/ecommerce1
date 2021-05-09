@@ -47,7 +47,7 @@
                             <div class="row">
                                 @foreach ($products as $product)
                                     <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 u-s-m-b-30 filter__item 
-                                                @foreach ($product->categories as $category) {{ strtoupper($category->name) }} @endforeach
+                                                    @foreach ($product->categories as $category) {{ strtoupper($category->name) }} @endforeach
 
                                         ">
                                         <div class="product-o product-o--hover-on product-o--radius">
@@ -109,9 +109,10 @@
                                                 <span class="product-o__review">{{ count($product->views) }}</span>
                                             </div>
 
-                                            <span class="product-o__price">${{ $product->price }}
+                                            <span class="product-o__price">${{ $product->price - (($product->discount * $product->price) / 100) }}
 
-                                                <span class="product-o__discount">${{ $product->discount * $product->price/100 }}</span></span>
+                                                <span
+                                                    class="product-o__discount">${{ $product->price }}</span></span>
                                         </div>
                                     </div>
                                 @endforeach
@@ -121,7 +122,7 @@
                     </div>
                     <div class="col-lg-12">
                         <div class="load-more">
-
+                            
                             <button class="btn btn--e-brand" type="button">Load More</button>
                         </div>
                     </div>

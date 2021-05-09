@@ -354,7 +354,7 @@
                                                 <div class="review-o u-s-m-b-15">
                                                     <div class="review-o__info u-s-m-b-8">
 
-                                                        <span class="review-o__name">{{ $view->user_id }}</span>
+                                                        <span class="review-o__name">{{ $view->user->name }}</span>
 
                                                         <span class="review-o__date">{{ $view->created_at }}</span>
                                                     </div>

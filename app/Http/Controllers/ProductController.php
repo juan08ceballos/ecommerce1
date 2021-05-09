@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\ProductHasCategory;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -15,9 +16,10 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products= Product::all();
+        $products= Product::all()->take(4);
         $categories= Category::all();
         return view('components/products.index',compact('products','categories'));
+        
     }
 
     /**
@@ -27,8 +29,11 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::all();
+        return view('components/products.create',compact('categories'));
     }
+
+        
 
     /**
      * Store a newly created resource in storage.
@@ -38,7 +43,42 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $dataProductoForm = $request->validate([
+            'name' => ['string', 'required'],
+            'description' => ['string', 'required'],
+            'price' => ['numeric','required'],
+            'stock' => ['numeric','required'],
+            'categories' => ['required'],
+            'available' => ['nullable'],
+            'video' => ['required'],
+            'discount' => ['numeric','required']
+        ]);
+
+        $newProduct = new Product();
+        $newProduct->name = $dataProductoForm['name'];
+        $newProduct->description = $dataProductoForm['description'];
+        $newProduct->price = $dataProductoForm['price'];
+        $newProduct->stock = $dataProductoForm['stock'];
+        $newProduct->video = $dataProductoForm['video'];
+        $newProduct->discount = $dataProductoForm['discount'];
+        isset($dataProductoForm['available']) ? $newProduct->available = true : $newProduct->available = false;
+        
+        $newProduct ->save();
+
+
+        foreach ($dataProductoForm['categories'] as $category) {
+            $newProductHasCategories = new ProductHasCategory();
+            $newProductHasCategories->product_id = $newProduct['id'];
+            $newProductHasCategories->category_id = $category;
+            $newProductHasCategories->save();
+            
+        }
+        
+        
+
+        
+        
+        
     }
 
     /**
@@ -63,7 +103,9 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        $products = Product::all();
+        $categories = Category::all(); 
+        return view('components/products.more',compact('products', 'categories'));
     }
 
     /**

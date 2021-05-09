@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProductController;
 use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Support\Facades\Route;
 
@@ -32,3 +33,9 @@ Route::get('/', function () {
 // });
 
 Route::resource('products', ProductController::class);
+
+Route::get('/more', function () {
+    $products = Product::all();
+    $categories = Category::all(); 
+    return view('components/products.more',compact('products', 'categories'));
+});
