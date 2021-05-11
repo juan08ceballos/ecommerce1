@@ -69,7 +69,8 @@
                                                         </li>
                                                         <li>
 
-                                                            <a data-modal="modal" data-modal-id="#add-to-cart"
+                                                            <a href=" {{ route('cart.addOne', ['product' => $product->id]) }}"
+                                                                data-modal="modal" data-modal-id="#add-to-cart"
                                                                 data-tooltip="tooltip" data-placement="top"
                                                                 title="Add to Cart"><i class="fas fa-plus-circle"></i></a>
                                                         </li>
@@ -122,8 +123,8 @@
                     </div>
                     <div class="col-lg-12">
                         <div class="load-more">
-                            
-                            <button class="btn btn--e-brand" type="button">Load More</button>
+                            <a class="mini-link btn--e-transparent-secondary-b-2" href="{{ route ('more.index') }}">Load More</a>
+                            {{-- <button class="btn btn--e-brand" type="button" onclick="{{ route ('more.index') }}">Load More</button> --}}
                         </div>
                     </div>
                 </div>

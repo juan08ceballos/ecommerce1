@@ -146,9 +146,11 @@
                             </ul>
                         </div>
                         <div class="u-s-m-b-15">
-                            <form class="pd-detail__form">
+                            <form class="pd-detail__form" method="POST" action="{{ route('cart.store') }}">
+                                @csrf
                                 <div class="pd-detail-inline-2">
                                     <div class="u-s-m-b-15">
+                                        <input type="hidden" name="productId" value="{{ $products->id }}">
 
                                         <!--====== Input Counter ======-->
                                         <div class="input-counter">
@@ -156,7 +158,7 @@
                                             <span class="input-counter__minus fas fa-minus"></span>
 
                                             <input class="input-counter__text input-counter--text-primary-style" type="text"
-                                                value="1" data-min="1" data-max="1000">
+                                                value="1" data-min="1" data-max="1000" name="amount">
 
                                             <span class="input-counter__plus fas fa-plus"></span>
                                         </div>
