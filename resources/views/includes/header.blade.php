@@ -46,30 +46,41 @@
 
                             <span class="js-menu-toggle"></span>
                             <ul style="width:120px">
-                                <li>
+                                @auth
+                                    <li>
 
-                                    <a href="dashboard.html"><i class="fas fa-user-circle u-s-m-r-6"></i>
+                                        <a href="dashboard.html"><i class="fas fa-user-circle u-s-m-r-6"></i>
 
-                                        <span>Account</span></a>
-                                </li>
-                                <li>
+                                            <span>{{ Auth::user()->name }}</span></a>
+                                    </li>
 
-                                    <a href="signup.html"><i class="fas fa-user-plus u-s-m-r-6"></i>
+                                    <li>
 
-                                        <span>Signup</span></a>
-                                </li>
-                                <li>
+                                        <a href="{{ route('logout') }}"
+                                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+                                        <i class="fas fa-lock-open u-s-m-r-6"></i>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                            style="display: none;">
+                                            @csrf
+                                        </form>
+                                    </li>
+                                @else
 
-                                    <a href="signin.html"><i class="fas fa-lock u-s-m-r-6"></i>
 
-                                        <span>Signin</span></a>
-                                </li>
-                                <li>
+                                    <li>
 
-                                    <a href="signup.html"><i class="fas fa-lock-open u-s-m-r-6"></i>
+                                        <a href="{{ route('register') }}"><i class="fas fa-user-plus u-s-m-r-6"></i>
 
-                                        <span>Signout</span></a>
-                                </li>
+                                            <span>Signup</span></a>
+                                    </li>
+                                    <li>
+
+                                        <a href="{{ route('login') }}"><i class="fas fa-lock u-s-m-r-6"></i>
+
+                                            <span>Signin</span></a>
+                                    </li>
+
+                                @endauth
                             </ul>
                             <!--====== End - Dropdown ======-->
                         </li>
@@ -1496,10 +1507,18 @@
                                         <span class="subtotal-value">
 
                                             @if (session()->has('cart'))
-                                                algun valor
+                                            @php
+                                                $total = 0;
+                                            @endphp
+                                                @foreach (session()->get('cart.products') as $item)
+                                                    @php
+                                                        $total += ($item['product']->price * $item['amount'])
+                                                    @endphp
+                                                @endforeach
+                                                ${{ $total }}
 
                                             @else
-                                                0
+                                                $0
                                             @endif
 
                                         </span>

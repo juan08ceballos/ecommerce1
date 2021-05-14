@@ -249,7 +249,7 @@
                                                     </tr>
                                                     <tr>
                                                         <td>GRAND TOTAL</td>
-                                                        <td>$379.00</td>
+                                                        <td>${{ $total }}</td>
                                                     </tr>
                                                 </tbody>
                                             </table>

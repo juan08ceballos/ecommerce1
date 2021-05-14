@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\ImageController;
 use App\Http\Controllers\MoreController;
 use App\Http\Controllers\ProductController;
 use App\Models\Product;
@@ -37,4 +38,14 @@ Route::get('/', function () {
 Route::resource('products', ProductController::class);
 Route::resource('more', MoreController::class);
 Route::resource('cart', CartController::class);
+Route::resource('image', ImageController::class);
 Route::get('cart/addOne/{product}', [CartController::class, 'addOne'])->name('cart.addOne');
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';
