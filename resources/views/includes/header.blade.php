@@ -129,7 +129,7 @@
                                     <ul style="width:225px">
                                         <li>
 
-                                            <a class="u-c-brand">$ - US DOLLAR</a>
+                                            <a class="u-c-brand">$ - US DOLAR</a>
                                         </li>
                                         <li>
 
