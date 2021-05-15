@@ -8,16 +8,21 @@ use Illuminate\Http\Request;
 
 class MoreController extends Controller
 {
+    
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Product $products)
     {
-        $products= Product::all();
+        $products = Product::all();
         $categories= Category::all();
+        
         return view('components/more.index',compact('products','categories'));
+        
+        
+        
     }
 
     /**
@@ -49,7 +54,11 @@ class MoreController extends Controller
      */
     public function show($id)
     {
-        //
+        $categories= Category::all();
+        $consulta = Category::with('products')->find($id);
+        $products = $consulta->products;
+        
+        return view('components/more.index',compact('products','categories'));
     }
 
     /**

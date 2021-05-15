@@ -7,7 +7,7 @@
 
             <!--====== Main Logo ======-->
 
-            <a class="main-logo" href="index.html">
+            <a class="main-logo" href="{{ route('products.index') }}">
 
                 <img src="{{ asset('images/logo/logo-1.png') }}" alt=""></a>
             <!--====== End - Main Logo ======-->
@@ -1448,7 +1448,7 @@
 
                                     @if (session()->has('cart'))
 
-                                        @foreach (session()->get('cart.products') as $cartProduct)
+                                        @foreach (session()->get('cart.products') as $key => $cartProduct)
                                             <div class="card-mini-product">
                                                 <div class="mini-product">
                                                     <div class="mini-product__image-wrapper">
@@ -1485,7 +1485,7 @@
                                                     </div>
                                                 </div>
 
-                                                <a class="mini-product__delete-link far fa-trash-alt"></a>
+                                                <a class="mini-product__delete-link far fa-trash-alt" href="{{ route('cart.edit',[$key]) }}"></a>
                                             </div>
                                         @endforeach
 

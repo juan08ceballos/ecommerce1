@@ -55,7 +55,7 @@
                                 <tbody>
 
                                     <!--====== Row ======-->
-                                    @foreach ($cartProducts as $cartProduct)
+                                    @foreach ($cartProducts as $key => $cartProduct)
                                         <tr>
                                             <td>
                                                 <div class="table-p__box">
@@ -117,7 +117,8 @@
                                             <td>
                                                 <div class="table-p__del-wrap">
 
-                                                    <a class="far fa-trash-alt table-p__delete-link" href="#"></a>
+                                                    <a class="far fa-trash-alt table-p__delete-link" href="{{ route('cart.edit',[$key]) }}"></a>
+                                                    
                                                 </div>
                                             </td>
                                         </tr>

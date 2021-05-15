@@ -20,215 +20,17 @@
 
                                         <span class="fas fa-minus shop-w__toggle" data-target="#s-category" data-toggle="collapse"></span>
                                     </div>
+                                    
                                     <div class="shop-w__wrap collapse show" id="s-category">
+                                        
                                         <ul class="shop-w__category-list gl-scroll">
+                                            
                                         @foreach ($categories as $category)
                                             <li class="has-list">
-
-                                                <a href="#">{{ $category->name }}</a>
-
+                                                                                               
+                                                <a href="{{ route('more.show', [$category->id]) }}">{{ $category->name }}</a>
                                                 <span class="category-list__text u-s-m-l-6">(23)</span>
-
-                                                <span class="js-shop-category-span is-expanded fas fa-plus u-s-m-l-6"></span>
-                                                <ul style="display:block">
-                                                    <li class="has-list">
-
-                                                        <a href="#">3D Printer & Supplies</a>
-
-                                                        <span class="js-shop-category-span fas fa-plus u-s-m-l-6"></span>
-                                                        <ul>
-                                                            <li>
-
-                                                                <a href="#">3d Printer</a></li>
-                                                            <li>
-
-                                                                <a href="#">3d Printing Pen</a></li>
-                                                            <li>
-
-                                                                <a href="#">3d Printing Accessories</a></li>
-                                                            <li>
-
-                                                                <a href="#">3d Printer Module Board</a></li>
-                                                        </ul>
-                                                    </li>
-                                                    <li class="has-list">
-
-                                                        <a href="#">Home Audio & Video</a>
-
-                                                        <span class="js-shop-category-span fas fa-plus u-s-m-l-6"></span>
-                                                        <ul>
-                                                            <li>
-
-                                                                <a href="#">TV Boxes</a></li>
-                                                            <li>
-
-                                                                <a href="#">TV Receiver & Accessories</a></li>
-                                                            <li>
-
-                                                                <a href="#">3d Printing Accessories</a></li>
-                                                            <li>
-
-                                                                <a href="#">3d Printer Module Board</a></li>
-                                                        </ul>
-                                                    </li>
-                                                    <li class="has-list">
-
-                                                        <a href="#">Media Players</a>
-
-                                                        <span class="js-shop-category-span fas fa-plus u-s-m-l-6"></span>
-                                                        <ul>
-                                                            <li>
-
-                                                                <a href="#">Earphones</a></li>
-                                                            <li>
-
-                                                                <a href="#">Mp3 Players</a></li>
-                                                            <li>
-
-                                                                <a href="#">Speakers & Radios</a></li>
-                                                            <li>
-
-                                                                <a href="#">Microphones</a></li>
-                                                        </ul>
-                                                    </li>
-                                                    <li class="has-list">
-
-                                                        <a href="#">Video Game Accessories</a>
-
-                                                        <span class="js-shop-category-span fas fa-plus u-s-m-l-6"></span>
-                                                        <ul>
-                                                            <li>
-
-                                                                <a href="#">Nintendo Video Games Accessories</a></li>
-                                                            <li>
-
-                                                                <a href="#">Sony Video Games Accessories</a></li>
-                                                            <li>
-
-                                                                <a href="#">Xbox Video Games Accessories</a></li>
-                                                        </ul>
-                                                    </li>
-                                                    <li class="has-list">
-
-                                                        <a href="#">Security & Protection</a>
-
-                                                        <span class="js-shop-category-span fas fa-plus u-s-m-l-6"></span>
-                                                        <ul>
-                                                            <li>
-
-                                                                <a href="#">Security Cameras</a></li>
-                                                            <li>
-
-                                                                <a href="#">Alarm System</a></li>
-                                                            <li>
-
-                                                                <a href="#">Security Gadgets</a></li>
-                                                            <li>
-
-                                                                <a href="#">CCTV Security Accessories</a></li>
-                                                        </ul>
-                                                    </li>
-                                                    <li class="has-list">
-
-                                                        <a href="#">Home Audio & Video</a>
-
-                                                        <span class="js-shop-category-span is-expanded fas fa-plus u-s-m-l-6"></span>
-                                                        <ul style="display:block">
-                                                            <li>
-
-                                                                <a href="#">TV Boxes</a></li>
-                                                            <li>
-
-                                                                <a href="#">TV Receiver & Accessories</a></li>
-                                                            <li>
-
-                                                                <a href="#">3d Printing Accessories</a></li>
-                                                            <li>
-
-                                                                <a href="#">3d Printer Module Board</a></li>
-                                                        </ul>
-                                                    </li>
-                                                    <li class="has-list">
-
-                                                        <a href="#">Photography & Camera</a>
-
-                                                        <span class="js-shop-category-span fas fa-plus u-s-m-l-6"></span>
-                                                        <ul>
-                                                            <li>
-
-                                                                <a href="#">Digital Cameras</a></li>
-                                                            <li>
-
-                                                                <a href="#">Sport Camera & Accessories</a></li>
-                                                            <li>
-
-                                                                <a href="#">Camera Accessories</a></li>
-                                                            <li>
-
-                                                                <a href="#">Lenses & Accessories</a></li>
-                                                        </ul>
-                                                    </li>
-                                                    <li class="has-list">
-
-                                                        <a href="#">Arduino Compatible</a>
-
-                                                        <span class="js-shop-category-span fas fa-plus u-s-m-l-6"></span>
-                                                        <ul>
-                                                            <li>
-
-                                                                <a href="#">Raspberry Pi & Orange Pi</a></li>
-                                                            <li>
-
-                                                                <a href="#">Module Board</a></li>
-                                                            <li>
-
-                                                                <a href="#">Smart Robot</a></li>
-                                                            <li>
-
-                                                                <a href="#">Board Kits</a></li>
-                                                        </ul>
-                                                    </li>
-                                                    <li class="has-list">
-
-                                                        <a href="#">DSLR Camera</a>
-
-                                                        <span class="js-shop-category-span fas fa-plus u-s-m-l-6"></span>
-                                                        <ul>
-                                                            <li>
-
-                                                                <a href="#">Nikon Camera</a></li>
-                                                            <li>
-
-                                                                <a href="#">Canon Camera</a></li>
-                                                            <li>
-
-                                                                <a href="#">Sony Camera</a></li>
-                                                            <li>
-
-                                                                <a href="#">DSLR Lenses</a></li>
-                                                        </ul>
-                                                    </li>
-                                                    <li class="has-list">
-
-                                                        <a href="#">Necessary Accessories</a>
-
-                                                        <span class="js-shop-category-span fas fa-plus u-s-m-l-6"></span>
-                                                        <ul>
-                                                            <li>
-
-                                                                <a href="#">Flash Cards</a></li>
-                                                            <li>
-
-                                                                <a href="#">Memory Cards</a></li>
-                                                            <li>
-
-                                                                <a href="#">Flash Pins</a></li>
-                                                            <li>
-
-                                                                <a href="#">Compact Discs</a></li>
-                                                        </ul>
-                                                    </li>
-                                                </ul>
+                                                
                                             </li>
                                         @endforeach
                                             
@@ -356,226 +158,16 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="u-s-m-b-30">
-                                <div class="shop-w">
-                                    <div class="shop-w__intro-wrap">
-                                        <h1 class="shop-w__h">MANUFACTURER</h1>
-
-                                        <span class="fas fa-minus shop-w__toggle" data-target="#s-manufacturer" data-toggle="collapse"></span>
-                                    </div>
-                                    <div class="shop-w__wrap collapse show" id="s-manufacturer">
-                                        <ul class="shop-w__list-2">
-                                            <li>
-                                                <div class="list__content">
-
-                                                    <input type="checkbox" checked>
-
-                                                    <span>Calvin Klein</span></div>
-
-                                                <span class="shop-w__total-text">(23)</span>
-                                            </li>
-                                            <li>
-                                                <div class="list__content">
-
-                                                    <input type="checkbox">
-
-                                                    <span>Diesel</span></div>
-
-                                                <span class="shop-w__total-text">(2)</span>
-                                            </li>
-                                            <li>
-                                                <div class="list__content">
-
-                                                    <input type="checkbox">
-
-                                                    <span>Polo</span></div>
-
-                                                <span class="shop-w__total-text">(2)</span>
-                                            </li>
-                                            <li>
-                                                <div class="list__content">
-
-                                                    <input type="checkbox">
-
-                                                    <span>Tommy Hilfiger</span></div>
-
-                                                <span class="shop-w__total-text">(9)</span>
-                                            </li>
-                                            <li>
-                                                <div class="list__content">
-
-                                                    <input type="checkbox">
-
-                                                    <span>Ndoge</span></div>
-
-                                                <span class="shop-w__total-text">(3)</span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="u-s-m-b-30">
-                                <div class="shop-w">
-                                    <div class="shop-w__intro-wrap">
-                                        <h1 class="shop-w__h">COLOR</h1>
-
-                                        <span class="fas fa-minus shop-w__toggle" data-target="#s-color" data-toggle="collapse"></span>
-                                    </div>
-                                    <div class="shop-w__wrap collapse show" id="s-color">
-                                        <ul class="shop-w__list gl-scroll">
-                                            <li>
-                                                <div class="color__check">
-
-                                                    <input type="checkbox" id="jet">
-
-                                                    <label class="color__check-label" for="jet" style="background-color: #333333"></label></div>
-
-                                                <span class="shop-w__total-text">(2)</span>
-                                            </li>
-                                            <li>
-                                                <div class="color__check">
-
-                                                    <input type="checkbox" id="folly">
-
-                                                    <label class="color__check-label" for="folly" style="background-color: #FF0055"></label></div>
-
-                                                <span class="shop-w__total-text">(4)</span>
-                                            </li>
-                                            <li>
-                                                <div class="color__check">
-
-                                                    <input type="checkbox" id="yellow">
-
-                                                    <label class="color__check-label" for="yellow" style="background-color: #FFFF00"></label></div>
-
-                                                <span class="shop-w__total-text">(6)</span>
-                                            </li>
-                                            <li>
-                                                <div class="color__check">
-
-                                                    <input type="checkbox" id="granite-gray">
-
-                                                    <label class="color__check-label" for="granite-gray" style="background-color: #605F5E"></label></div>
-
-                                                <span class="shop-w__total-text">(8)</span>
-                                            </li>
-                                            <li>
-                                                <div class="color__check">
-
-                                                    <input type="checkbox" id="space-cadet">
-
-                                                    <label class="color__check-label" for="space-cadet" style="background-color: #1D3461"></label></div>
-
-                                                <span class="shop-w__total-text">(10)</span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="u-s-m-b-30">
-                                <div class="shop-w">
-                                    <div class="shop-w__intro-wrap">
-                                        <h1 class="shop-w__h">SIZE</h1>
-
-                                        <span class="fas fa-minus collapsed shop-w__toggle" data-target="#s-size" data-toggle="collapse"></span>
-                                    </div>
-                                    <div class="shop-w__wrap collapse" id="s-size">
-                                        <ul class="shop-w__list gl-scroll">
-                                            <li>
-
-                                                <!--====== Check Box ======-->
-                                                <div class="check-box">
-
-                                                    <input type="checkbox" id="xs">
-                                                    <div class="check-box__state check-box__state--primary">
-
-                                                        <label class="check-box__label" for="xs">XS</label></div>
-                                                </div>
-                                                <!--====== End - Check Box ======-->
-
-                                                <span class="shop-w__total-text">(2)</span>
-                                            </li>
-                                            <li>
-
-                                                <!--====== Check Box ======-->
-                                                <div class="check-box">
-
-                                                    <input type="checkbox" id="small">
-                                                    <div class="check-box__state check-box__state--primary">
-
-                                                        <label class="check-box__label" for="small">Small</label></div>
-                                                </div>
-                                                <!--====== End - Check Box ======-->
-
-                                                <span class="shop-w__total-text">(4)</span>
-                                            </li>
-                                            <li>
-
-                                                <!--====== Check Box ======-->
-                                                <div class="check-box">
-
-                                                    <input type="checkbox" id="medium">
-                                                    <div class="check-box__state check-box__state--primary">
-
-                                                        <label class="check-box__label" for="medium">Medium</label></div>
-                                                </div>
-                                                <!--====== End - Check Box ======-->
-
-                                                <span class="shop-w__total-text">(6)</span>
-                                            </li>
-                                            <li>
-
-                                                <!--====== Check Box ======-->
-                                                <div class="check-box">
-
-                                                    <input type="checkbox" id="large">
-                                                    <div class="check-box__state check-box__state--primary">
-
-                                                        <label class="check-box__label" for="large">Large</label></div>
-                                                </div>
-                                                <!--====== End - Check Box ======-->
-
-                                                <span class="shop-w__total-text">(8)</span>
-                                            </li>
-                                            <li>
-
-                                                <!--====== Check Box ======-->
-                                                <div class="check-box">
-
-                                                    <input type="checkbox" id="xl">
-                                                    <div class="check-box__state check-box__state--primary">
-
-                                                        <label class="check-box__label" for="xl">XL</label></div>
-                                                </div>
-                                                <!--====== End - Check Box ======-->
-
-                                                <span class="shop-w__total-text">(10)</span>
-                                            </li>
-                                            <li>
-
-                                                <!--====== Check Box ======-->
-                                                <div class="check-box">
-
-                                                    <input type="checkbox" id="xxl">
-                                                    <div class="check-box__state check-box__state--primary">
-
-                                                        <label class="check-box__label" for="xxl">XXL</label></div>
-                                                </div>
-                                                <!--====== End - Check Box ======-->
-
-                                                <span class="shop-w__total-text">(12)</span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
+                            
+                            
+                            
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-9 col-md-12">
                     <div class="shop-p">
                         <div class="shop-p__toolbar u-s-m-b-30">
-                            <div class="shop-p__meta-wrap u-s-m-b-60">
+                            {{-- <div class="shop-p__meta-wrap u-s-m-b-60">
 
                                 <span class="shop-p__meta-text-1">FOUND 18 RESULTS</span>
                                 <div class="shop-p__meta-text-2">
@@ -587,7 +179,7 @@
                                     <a class="gl-tag btn--e-brand-shadow" href="#">mobiles & tablets</a>
 
                                     <a class="gl-tag btn--e-brand-shadow" href="#">books & audible</a></div>
-                            </div>
+                            </div> --}}
                             <div class="shop-p__tool-style">
                                 <div class="tool-style__group u-s-m-b-8">
 
@@ -621,20 +213,24 @@
                                     <div class="product-m">
                                         <div class="product-m__thumb">
 
-                                            <a class="aspect aspect--bg-grey aspect--square u-d-block" href="product-detail.html">
+                                            <a class="aspect aspect--bg-grey aspect--square u-d-block" href="{{ route('products.show', ['product' => $prod->id]) }}">
 
-                                                <img class="aspect__img" src="{{ count($prod->images) > 0 ? $prod->images[0]->url : 'images/product/electronic/product2.jpg' }}" alt=""></a>
+                                                <img class="aspect__img" src="{{ count($prod->images) > 0 ? $prod->images[0]->url : 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/No_image_3x4.svg/800px-No_image_3x4.svg.png' }}" alt=""></a>
                                             <div class="product-m__quick-look">
 
                                                 <a class="fas fa-search" data-modal="modal" data-modal-id="#quick-look" data-tooltip="tooltip" data-placement="top" title="Quick Look"></a></div>
                                             <div class="product-m__add-cart">
 
-                                                <a class="btn--e-brand" data-modal="modal" data-modal-id="#add-to-cart">Add to Cart</a></div>
+                                                <a class="btn--e-brand" data-modal="modal" data-modal-id="#add-to-cart" href="{{ route('cart.addOne', ['product' => $prod->id]) }}">Add to Cart</a></div>
                                         </div>
                                         <div class="product-m__content">
                                             <div class="product-m__category">
 
-                                                <a href="shop-side-version-2.html">Men Clothing</a></div>
+                                                <a href="shop-side-version-2.html">
+                                                @foreach ($prod->categories as $cat)
+                                                {{ strtoupper($cat->name) }}
+                                                @endforeach    
+                                                </a></div>
                                             <div class="product-m__name">
 
                                                 <a href="product-detail.html">{{ $prod->name }}</a></div>

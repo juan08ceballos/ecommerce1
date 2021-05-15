@@ -57,7 +57,7 @@
                                                     href="product-detail.html">
 
                                                     <img class="aspect__img"
-                                                        src="{{ count($product->images) > 0 ? $product->images[0]->url : 'images/product/electronic/product2.jpg' }}"
+                                                        src="{{ count($product->images) > 0 ? $product->images[0]->url : 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/No_image_3x4.svg/800px-No_image_3x4.svg.png' }}"
                                                         alt=""></a>
                                                 <div class="product-o__action-wrap">
                                                     <ul class="product-o__action-list">

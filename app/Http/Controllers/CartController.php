@@ -164,7 +164,7 @@ class CartController extends Controller
     public function addOne(Product $product)
     {
         $this->addProductsToCart($product,1);
-        return redirect()->route('products.index');
+        return back();
     }
 
     /**
@@ -186,7 +186,11 @@ class CartController extends Controller
      */
     public function edit($id)
     {
-        //
+        $cartProducts = session()->get('cart.products');
+        unset($cartProducts[$id]);
+        session()->put('cart.products',$cartProducts);
+        
+        return back();
     }
 
     /**
@@ -209,6 +213,7 @@ class CartController extends Controller
      */
     public function destroy($id)
     {
-        //
+        
+        
     }
 }
