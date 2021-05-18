@@ -11,19 +11,16 @@
                         <ul class="pd-breadcrumb__list">
                             <li class="has-separator">
 
-                                <a href="index.hml">Home</a>
+                                <a href="{{ route('products.index') }}">Home</a>
                             </li>
                             <li class="has-separator">
 
-                                <a href="shop-side-version-2.html">Electronics</a>
+                                <a href="{{ route('more.show', [$products->categories[0]->id]) }}">{{ $products->categories[0]->name }}</a>
                             </li>
-                            <li class="has-separator">
-
-                                <a href="shop-side-version-2.html">DSLR Cameras</a>
-                            </li>
+                            
                             <li class="is-marked">
 
-                                <a href="shop-side-version-2.html">Nikon Cameras</a>
+                                <a href="{{ route('products.show', ['product' => $products->id]) }}">{{ $products->name }}</a>
                             </li>
                         </ul>
                     </div>
@@ -35,13 +32,13 @@
                         <div class="slider-fouc pd-wrap">
                             <div id="pd-o-initiate">
                                 @foreach ($products->images as $image)
-                                <div class="pd-o-img-wrap" data-src="{{ $image->url }}">
+                                    <div class="pd-o-img-wrap" data-src="{{ $image->url }}">
 
-                                    <img class="u-img-fluid" src="{{ $image->url }}"
-                                        data-zoom-image="{{ $image->url }}" alt="">
-                                </div>
+                                        <img class="u-img-fluid" src="{{ $image->url }}"
+                                            data-zoom-image="{{ $image->url }}" alt="">
+                                    </div>
                                 @endforeach
-                                
+
                             </div>
 
                             <span class="pd-text">Click for larger zoom</span>
@@ -50,13 +47,13 @@
                             <div class="slider-fouc">
                                 <div id="pd-o-thumbnail">
                                     @foreach ($products->images as $image)
-                                    <div>
+                                        <div>
 
-                                        <img class="u-img-fluid" src="{{ $image->url }}" alt="">
-                                    </div>
+                                            <img class="u-img-fluid" src="{{ $image->url }}" alt="">
+                                        </div>
                                     @endforeach
-                                    
-                                    
+
+
                                 </div>
                             </div>
                         </div>
@@ -74,15 +71,77 @@
                         <div>
                             <div class="pd-detail__inline">
 
-                                <span class="pd-detail__price">${{ $products->price - ($products->discount * $products->price /100)}}</span>
+                                <span
+                                    class="pd-detail__price">${{ $products->price - ($products->discount * $products->price) / 100 }}</span>
 
-                                <span class="pd-detail__discount">({{ $products->discount }}% OFF)</span><del class="pd-detail__del">${{ $products->discount * $products->price /100}}</del>
+                                <span class="pd-detail__discount">({{ $products->discount }}% OFF)</span><del
+                                    class="pd-detail__del">${{ ($products->discount * $products->price) / 100 }}</del>
                             </div>
                         </div>
                         <div class="u-s-m-b-15">
-                            <div class="pd-detail__rating gl-rating-style"><i class="fas fa-star"></i><i
-                                    class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                    class="fas fa-star-half-alt"></i>
+                            <div class="pd-detail__rating gl-rating-style">
+                                @php
+                                    $total = 0;
+                                @endphp
+                                @foreach ($products->views as $view)
+                                    @php
+                                        $total += $view->calification;
+                                        $prom = $total / count($products->views);
+                                    @endphp
+
+                                @endforeach
+                                
+                                @switch($prom)
+                                    @case(1)
+                                        <i class="fas fa-star"></i>
+                                    @break
+                                    @case($prom<=1.5)
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    @break
+                                    @case($prom<=2)
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    @break
+                                    @case($prom<=2.5)
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    @break
+                                    @case($prom<=3)
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    @break
+                                    @case($prom<=3.5)
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    @break
+                                    @case($prom<=4)
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    @break
+                                    @case($prom<=4.5)
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    @break
+                                    @case($prom<=5)
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    @break
+                                    @default
+
+                                @endswitch
 
                                 <span class="pd-detail__review u-s-m-l-4">
 
@@ -324,11 +383,61 @@
                                     <div class="u-s-m-b-30">
                                         <div class="pd-tab__rev-score">
                                             <div class="u-s-m-b-8">
-                                                <h2>{{ count($products->views) }} Reviews - 4.6 (Overall)</h2>
+                                                <h2>{{ count($products->views) }} Reviews - {{$prom}} (Overall)</h2>
                                             </div>
-                                            <div class="gl-rating-style-2 u-s-m-b-8"><i class="fas fa-star"></i><i
-                                                    class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                                    class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                                            <div class="gl-rating-style-2 u-s-m-b-8">
+                                                @switch($prom)
+                                    @case(1)
+                                        <i class="fas fa-star"></i>
+                                    @break
+                                    @case($prom<=1.5)
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    @break
+                                    @case($prom<=2)
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    @break
+                                    @case($prom<=2.5)
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    @break
+                                    @case($prom<=3)
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    @break
+                                    @case($prom<=3.5)
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    @break
+                                    @case($prom<=4)
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    @break
+                                    @case($prom<=4.5)
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    @break
+                                    @case($prom<=5)
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    @break
+                                    @default
+
+                                @endswitch
+                            </div>
                                             <div class="u-s-m-b-8">
                                                 <h4>We want to hear from you!</h4>
                                             </div>
@@ -340,7 +449,8 @@
                                         <form class="pd-tab__rev-f1">
                                             <div class="rev-f1__group">
                                                 <div class="u-s-m-b-15">
-                                                    <h2>{{ count($products->views) }} Review(s) for {{  $products->name}}</h2>
+                                                    <h2>{{ count($products->views) }} Review(s) for
+                                                        {{ $products->name }}</h2>
                                                 </div>
                                                 <div class="u-s-m-b-15">
 
@@ -353,25 +463,74 @@
                                             </div>
                                             <div class="rev-f1__review">
                                                 @foreach ($products->views as $view)
-                                                <div class="review-o u-s-m-b-15">
-                                                    <div class="review-o__info u-s-m-b-8">
+                                                    <div class="review-o u-s-m-b-15">
+                                                        <div class="review-o__info u-s-m-b-8">
 
-                                                        <span class="review-o__name">{{ $view->user->name }}</span>
+                                                            <span class="review-o__name">{{ $view->user->name }}</span>
 
-                                                        <span class="review-o__date">{{ $view->created_at }}</span>
+                                                            <span class="review-o__date">{{ $view->created_at }}</span>
+                                                        </div>
+                                                        <div class="review-o__rating gl-rating-style u-s-m-b-8">
+                                                            @switch($view->calification)
+                                                                @case(1)
+                                                                    <i class="fas fa-star"></i>
+                                                                @break
+                                                                @case($view->calification<=1.5)
+                                                                    <i class="fas fa-star"></i>
+                                                                    <i class="fas fa-star-half-alt"></i>
+                                                                @break
+                                                                @case($view->calification<=2)
+                                                                    <i class="fas fa-star"></i>
+                                                                    <i class="fas fa-star"></i>
+                                                                @break
+                                                                @case($view->calification<=2.5)
+                                                                    <i class="fas fa-star"></i>
+                                                                    <i class="fas fa-star"></i>
+                                                                    <i class="fas fa-star-half-alt"></i>
+                                                                @break
+                                                                @case($view->calification<=3)
+                                                                    <i class="fas fa-star"></i>
+                                                                    <i class="fas fa-star"></i>
+                                                                    <i class="fas fa-star"></i>
+                                                                @break
+                                                                @case($view->calification<=3.5)
+                                                                    <i class="fas fa-star"></i>
+                                                                    <i class="fas fa-star"></i>
+                                                                    <i class="fas fa-star"></i>
+                                                                    <i class="fas fa-star-half-alt"></i>
+                                                                @break
+                                                                @case($view->calification<=4)
+                                                                    <i class="fas fa-star"></i>
+                                                                    <i class="fas fa-star"></i>
+                                                                    <i class="fas fa-star"></i>
+                                                                    <i class="fas fa-star"></i>
+                                                                @break
+                                                                @case($view->calification<=4.5)
+                                                                    <i class="fas fa-star"></i>
+                                                                    <i class="fas fa-star"></i>
+                                                                    <i class="fas fa-star"></i>
+                                                                    <i class="fas fa-star"></i>
+                                                                    <i class="fas fa-star-half-alt"></i>
+                                                                @break
+                                                                @case($view->calification<=5)
+                                                                    <i class="fas fa-star"></i>
+                                                                    <i class="fas fa-star"></i>
+                                                                    <i class="fas fa-star"></i>
+                                                                    <i class="fas fa-star"></i>
+                                                                    <i class="fas fa-star"></i>
+                                                                @break
+                                                                @default
+
+                                                            @endswitch
+
+
+                                                            <span>({{ $view->calification }})</span>
+                                                        </div>
+                                                        <p class="review-o__text">{{ $view->view }}</p>
                                                     </div>
-                                                    <div class="review-o__rating gl-rating-style u-s-m-b-8"><i
-                                                            class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                                            class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                                            class="far fa-star"></i>
-
-                                                        <span>(4)</span>
-                                                    </div>
-                                                    <p class="review-o__text">{{ $view->view }}</p>
-                                                </div>
                                                 @endforeach
-                                                
-                                                
+
+
                                             </div>
                                         </form>
                                     </div>

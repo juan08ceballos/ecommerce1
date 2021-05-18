@@ -1,4 +1,41 @@
 <!--====== Nav 1 ======-->
+<style>
+    /* The close button */
+    .closebtn {
+        margin-left: 15px;
+        color: green;
+        font-weight: bold;
+        float: right;
+        font-size: 22px;
+        line-height: 20px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+    /* When moving the mouse over the close button */
+    .closebtn:hover {
+        color: black;
+    }
+</style>
+
+@if (session()->has('status'))
+
+    <div class="w3-panel w3-pale-green w3-border">
+        <h3>Success!</h3>
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        <p>{{ session()->get('status') }}</p>
+    </div>
+
+@endif
+
+@if (session()->has('error'))
+
+    <div class="w3-panel w3-pale-red w3-border">
+        <h3>Error!</h3>
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        <p>{{ session()->get('error') }}</p>
+    </div>
+
+@endif
 <nav class="primary-nav primary-nav-wrapper--border">
     <div class="container">
 
@@ -49,7 +86,7 @@
                                 @auth
                                     <li>
 
-                                        <a href="dashboard.html"><i class="fas fa-user-circle u-s-m-r-6"></i>
+                                        <a href="{{ route('user.index') }}"><i class="fas fa-user-circle u-s-m-r-6"></i>
 
                                             <span>{{ Auth::user()->name }}</span></a>
                                     </li>
@@ -1481,7 +1518,7 @@
                                                             {{ $cartProduct['amount'] }} x</span>
 
                                                         <span class="mini-product__price">$
-                                                            {{ $cartProduct['product']->price }}</span>
+                                                            {{ $cartProduct['product']->price - ($cartProduct['product']->price * $cartProduct['product']->discount)/100 }}</span>
                                                     </div>
                                                 </div>
 
@@ -1512,7 +1549,7 @@
                                             @endphp
                                                 @foreach (session()->get('cart.products') as $item)
                                                     @php
-                                                        $total += ($item['product']->price * $item['amount'])
+                                                        $total += ($item['product']->price - ($item['product']->price*$item['product']->discount)/100)*$item['amount']
                                                     @endphp
                                                 @endforeach
                                                 ${{ $total }}
@@ -1525,7 +1562,7 @@
                                     </div>
                                     <div class="mini-action">
 
-                                        <a class="mini-link btn--e-brand-b-2" href="checkout.html">PROCEED TO
+                                        <a class="mini-link btn--e-brand-b-2" href="{{ route('order.index') }}">PROCEED TO
                                             CHECKOUT</a>
 
                                         <a class="mini-link btn--e-transparent-secondary-b-2"

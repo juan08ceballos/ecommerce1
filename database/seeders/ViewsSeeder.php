@@ -23,7 +23,8 @@ class ViewsSeeder extends Seeder
             'updated_at' => $faker->dateTime($max = 'now', $timezone = null),
             'view' => 'excelente producto',
             'product_id' => 1,
-            'user_id' => 2
+            'user_id' => 2,
+            'calification' => 3
         ]);
         DB::table('views')->insert([
             
@@ -31,7 +32,8 @@ class ViewsSeeder extends Seeder
             'updated_at' => $faker->dateTime($max = 'now', $timezone = null),
             'view' => 'rápido el envío',
             'product_id' => 1,
-            'user_id' => 10
+            'user_id' => 10,
+            'calification' => 4
         ]);
         DB::table('views')->insert([
             
@@ -39,7 +41,8 @@ class ViewsSeeder extends Seeder
             'updated_at' => $faker->dateTime($max = 'now', $timezone = null),
             'view' => 'buena calidad',
             'product_id' => 2,
-            'user_id' => 13
+            'user_id' => 13,
+            'calification' => 5
         ]);
         DB::table('views')->insert([
             
@@ -47,7 +50,8 @@ class ViewsSeeder extends Seeder
             'updated_at' => $faker->dateTime($max = 'now', $timezone = null),
             'view' => 'buena garantía',
             'product_id' => 2,
-            'user_id' => 30
+            'user_id' => 30,
+            'calification' => 2
         ]);
         DB::table('views')->insert([
             
@@ -55,7 +59,8 @@ class ViewsSeeder extends Seeder
             'updated_at' => $faker->dateTime($max = 'now', $timezone = null),
             'view' => 'muchas gracias',
             'product_id' => 3,
-            'user_id' => 8
+            'user_id' => 8,
+            'calification' => 3
         ]);
         DB::table('views')->insert([
             
@@ -63,7 +68,8 @@ class ViewsSeeder extends Seeder
             'updated_at' => $faker->dateTime($max = 'now', $timezone = null),
             'view' => 'lo recomiendo',
             'product_id' => 3,
-            'user_id' => 26
+            'user_id' => 26,
+            'calification' => 4
         ]);
     }
 }

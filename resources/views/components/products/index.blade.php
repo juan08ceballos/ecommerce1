@@ -103,9 +103,69 @@
 
                                                 <a
                                                     href="{{ route('products.show', ['product' => $product->id]) }}">{{ $product->name }}</a></span>
-                                            <div class="product-o__rating gl-rating-style"><i class="fas fa-star"></i><i
-                                                    class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                                    class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                            <div class="product-o__rating gl-rating-style">
+                                            @php
+                                                $total = 0;
+                                            @endphp
+                                            @foreach ($product->views as $view)
+                                                @php
+                                                    $total += $view->calification;
+                                                    $prom = $total/count($product->views);
+                                                @endphp
+                                                
+                                            @endforeach
+                                                                                        
+                                            @switch($prom)
+                                                @case(1)
+                                                    <i class="fas fa-star"></i>
+                                                @break
+                                                @case($prom<=1.5)
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star-half-alt"></i>
+                                                @break
+                                                @case($prom<=2)
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                @break
+                                                @case($prom<=2.5)
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star-half-alt"></i>
+                                                @break
+                                                @case($prom<=3)
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                @break
+                                                @case($prom<=3.5)
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star-half-alt"></i>
+                                                @break
+                                                @case($prom<=4)
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                @break
+                                                @case($prom<=4.5)
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star-half-alt"></i>
+                                                @break
+                                                @case($prom<=5)
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                @break
+                                                @default
+            
+                                            @endswitch
 
                                                 <span class="product-o__review">{{ count($product->views) }}</span>
                                             </div>

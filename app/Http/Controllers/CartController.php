@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class CartController extends Controller
@@ -21,7 +22,7 @@ class CartController extends Controller
             $total= 0;
             $cartProducts = session()->get('cart.products');
             foreach ($cartProducts as $product) {
-                $total = $total + ($product['product']->price * $product['amount']);
+                $total = $total + (($product['product']->price - (($product['product']->price*$product['product']->discount)/100)) * $product['amount']);
             }
             
 
@@ -166,6 +167,21 @@ class CartController extends Controller
         $this->addProductsToCart($product,1);
         return back();
     }
+
+    // public function cleancart()
+    // {
+    //     $cartProducts = session()->get('cart.products');
+    //     for ($i=0; $i < count($cartProducts); $i++) { 
+            
+    //         unset($cartProducts[$i]);
+    //     }
+    //     session()->put('cart.products',$cartProducts);
+
+    //     $products= Product::all()->take(4);
+        
+    //     $categories = Category::all();
+    //     return view('components/products.index',compact('products','categories',));
+    // }
 
     /**
      * Display the specified resource.

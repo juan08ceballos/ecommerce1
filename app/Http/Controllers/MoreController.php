@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\View;
 use Illuminate\Http\Request;
 
 class MoreController extends Controller
@@ -43,7 +44,10 @@ class MoreController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $categories= Category::all();
+        $products = Product::whereBetween('price',[$request->min, $request->max])->get();
+        
+        return view('components/more.index',compact('products','categories'));
     }
 
     /**
@@ -57,6 +61,23 @@ class MoreController extends Controller
         $categories= Category::all();
         $consulta = Category::with('products')->find($id);
         $products = $consulta->products;
+        
+        return view('components/more.index',compact('products','categories'));
+    }
+
+    public function filterStar($calification)
+    {
+        $total = 0;
+        $categories = Category::all();
+        $product = Product::join('views','views.product_id','=','products.id')->where('calification',$calification)->get();
+        // dd($product[1]->product_id);
+        // foreach ($product as $key => $prod) {
+            
+             
+            
+        // }
+        
+        $products = $product;
         
         return view('components/more.index',compact('products','categories'));
     }

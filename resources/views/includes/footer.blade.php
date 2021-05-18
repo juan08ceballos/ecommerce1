@@ -7,13 +7,13 @@
                     <span class="outer-footer__content-title">Contact Us</span>
                     <div class="outer-footer__text-wrap"><i class="fas fa-home"></i>
 
-                        <span>4247 Ashford Drive Virginia VA-20006 USA</span></div>
+                        <span>Bogotá, Colombia</span></div>
                     <div class="outer-footer__text-wrap"><i class="fas fa-phone-volume"></i>
 
-                        <span>(+0) 900 901 904</span></div>
+                        <span>(+57) 3209815288</span></div>
                     <div class="outer-footer__text-wrap"><i class="far fa-envelope"></i>
 
-                        <span>contact@domain.com</span></div>
+                        <span>juan08ceballos@gmail.com</span></div>
                     <div class="outer-footer__social">
                         <ul>
                             <li>

@@ -141,7 +141,7 @@
                             </div>
                             <div class="route-box__g2">
 
-                                <a class="route-box__link" href="cart.html"><i class="fas fa-trash"></i>
+                                <a class="route-box__link" href="{{ route('cart.cleancart') }}"><i class="fas fa-trash"></i>
 
                                     <span>CLEAR CART</span></a>
 
@@ -238,26 +238,36 @@
                                                 <tbody>
                                                     <tr>
                                                         <td>SHIPPING</td>
-                                                        <td>$4.00</td>
+                                                        <td>$5000</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>TAX</td>
-                                                        <td>$0.00</td>
+                                                        <td>IVA</td>
+                                                        @php
+                                                                    $iva = 0;
+                                                                @endphp
+                                                                @foreach ($cartProducts as $key => $product)
+                                                                @php
+                                                                    
+                                                                    $iva += (($product['product']->price*$product['amount'])*0.19);
+                                                                @endphp
+                                                                
+                                                                @endforeach
+                                                                <td>${{ $iva }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>SUBTOTAL</td>
-                                                        <td>$379.00</td>
+                                                        <td>${{ $total }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>GRAND TOTAL</td>
-                                                        <td>${{ $total }}</td>
+                                                        <td>${{ $total+$iva+5000 }}</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
                                         </div>
                                         <div>
 
-                                            <button class="btn btn--e-brand-b-2" type="submit"> PROCEED TO CHECKOUT</button>
+                                            <a class="mini-link btn--e-transparent-secondary-b-2" href="{{ route ('order.index') }}">PROCEED TO CHECKOUT</a>
                                         </div>
                                     </div>
                                 </div>

@@ -51,56 +51,63 @@
                                             <li>
                                                 <div class="rating__check">
 
-                                                    <input type="checkbox">
+                                                    <a href="{{ route('more.filterStar', [5]) }}">
                                                     <div class="rating__check-star-wrap"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                                                 </div>
 
                                                 <span class="shop-w__total-text">(2)</span>
+                                            </a>
                                             </li>
                                             <li>
                                                 <div class="rating__check">
 
-                                                    <input type="checkbox">
+                                                    <a href="{{ route('more.filterStar', [4]) }}">
                                                     <div class="rating__check-star-wrap"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
 
                                                         <span>& Up</span></div>
                                                 </div>
 
                                                 <span class="shop-w__total-text">(8)</span>
+                                            </a>
                                             </li>
                                             <li>
                                                 <div class="rating__check">
 
-                                                    <input type="checkbox">
+                                                    <a href="{{ route('more.filterStar', [3]) }}">
                                                     <div class="rating__check-star-wrap"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
 
                                                         <span>& Up</span></div>
                                                 </div>
 
                                                 <span class="shop-w__total-text">(10)</span>
+                                            </a>
                                             </li>
                                             <li>
                                                 <div class="rating__check">
 
-                                                    <input type="checkbox">
+                                                    <a href="{{ route('more.filterStar', [2]) }}">
                                                     <div class="rating__check-star-wrap"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
 
                                                         <span>& Up</span></div>
                                                 </div>
 
                                                 <span class="shop-w__total-text">(12)</span>
+                                            </a>
                                             </li>
                                             <li>
                                                 <div class="rating__check">
 
-                                                    <input type="checkbox">
+                                                    <a href="{{ route('more.filterStar', [1]) }}">
                                                     <div class="rating__check-star-wrap"><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
 
                                                         <span>& Up</span></div>
                                                 </div>
 
                                                 <span class="shop-w__total-text">(1)</span>
+                                            </a>
                                             </li>
+
+                                            
                                         </ul>
                                     </div>
                                 </div>
@@ -138,18 +145,19 @@
                                         <span class="fas fa-minus shop-w__toggle" data-target="#s-price" data-toggle="collapse"></span>
                                     </div>
                                     <div class="shop-w__wrap collapse show" id="s-price">
-                                        <form class="shop-w__form-p">
+                                        <form class="shop-w__form-p" method="POST" action="{{ route('more.store') }}">
+                                            @csrf
                                             <div class="shop-w__form-p-wrap">
                                                 <div>
 
                                                     <label for="price-min"></label>
 
-                                                    <input class="input-text input-text--primary-style" type="text" id="price-min" placeholder="Min"></div>
+                                                    <input class="input-text input-text--primary-style" type="text" id="price-min" placeholder="Min" name="min"></div>
                                                 <div>
 
                                                     <label for="price-max"></label>
 
-                                                    <input class="input-text input-text--primary-style" type="text" id="price-max" placeholder="Max"></div>
+                                                    <input class="input-text input-text--primary-style" type="text" id="price-max" placeholder="Max" name="max"></div>
                                                 <div>
 
                                                     <button class="btn btn--icon fas fa-angle-right btn--e-transparent-platinum-b-2" type="submit"></button></div>
@@ -234,7 +242,69 @@
                                             <div class="product-m__name">
 
                                                 <a href="product-detail.html">{{ $prod->name }}</a></div>
-                                            <div class="product-m__rating gl-rating-style"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                                            <div class="product-m__rating gl-rating-style">
+                                                @php
+                                    $total = 0;
+                                @endphp
+                                @foreach ($prod->views as $view)
+                                    @php
+                                        $total += $view->calification;
+                                        $prom = $total / count($prod->views);
+                                    @endphp
+
+                                @endforeach
+                                
+                                @switch($prom)
+                                @case($prom=1)
+                                    <i class="fas fa-star"></i>
+                                @break
+                                @case($prom<=1.5)
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                @break
+                                @case($prom<=2)
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                @break
+                                @case($prom<=2.5)
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                @break
+                                @case($prom<=3)
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                @break
+                                @case($prom<=3.5)
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                @break
+                                @case($prom<=4)
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                @break
+                                @case($prom<=4.5)
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                @break
+                                @case($prom<=5)
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                @break
+                                @default
+
+                            @endswitch
 
                                                 <span class="product-m__review">({{ count($prod->views) }})</span></div>
                                             <div class="product-m__price">${{ $prod->price - (($prod->discount * $prod->price) / 100) }}</div>
